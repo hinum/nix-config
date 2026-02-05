@@ -36,17 +36,12 @@
     isNormalUser = true;
     description = "numblr";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.hyprland.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
   programs.git.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
