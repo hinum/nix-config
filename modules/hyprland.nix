@@ -1,6 +1,25 @@
 {pkgs, ...}: {
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+  services.greetd = {
+    enable = true;
+    settings = {
+       default_session = {
+         command = "start-hyprland";
+         user = "numblr";
+       };
+     };
+  };
   environment = {
     systemPackages = with pkgs; [
       kdePackages.dolphin

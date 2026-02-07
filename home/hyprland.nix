@@ -1,6 +1,7 @@
 {...}: {
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = builtins.readFile ./configs/hyprland.conf;
+    systemd.enable = false;
+    extraConfig = "source = ${./configs/hyprland.conf}";
   };
 }
