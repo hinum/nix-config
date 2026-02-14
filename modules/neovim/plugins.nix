@@ -3,7 +3,6 @@
     treesitter.enable = true;
     web-devicons.enable = true;
     todo-comments.enable = true;
-    lualine.enable = true;
     vimtex.enable = true;
 
     telescope = {
@@ -12,10 +11,6 @@
         "<leader>ff" = "find_files";
         "<leader>fg" = "live_grep";
       };
-    };
-    neo-tree = {
-      enable = true;
-      settings.window.position = "current";
     };
     noice = {
       enable = true;

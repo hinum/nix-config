@@ -22,7 +22,8 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      kdePackages.dolphin
+      catppuccin-qt5ct
+      thunar
       kitty
       wofi
     ];

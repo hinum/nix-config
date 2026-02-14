@@ -61,6 +61,5 @@
       inherit pkgs;
       modules = homeModules;
     };
-    packages.x86_64-linux.gow-nvidia-driver = import ./packages/gow-nvidia-driver.nix pkgs;
   };
 }
