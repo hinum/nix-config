@@ -10,9 +10,6 @@ in {
     enable = true;
     openFirewall = true;
   };
-  environment.sessionVariables = {
-    NIX_BUILD_SHELL = "${devfish}/bin/devfish";
-  };
   environment.systemPackages = with pkgs; [
     firefox
     htop
