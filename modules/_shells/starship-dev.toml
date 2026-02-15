@@ -299,36 +299,48 @@ format = '[$symbol]($style)'
 
 [aws]
 symbol = "  "
+style = "bg:#e78284 fg:#232634"
 
 [c]
-symbol = " "
+symbol = ""
+format = '[$symbol]($style)'
+style = "bg:#e78284 fg:#232634"
 
 [conda]
 symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [docker_context]
+style = "bg:#e78284 fg:#232634"
 symbol = " "
 
 [fossil_branch]
 symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [git_commit]
 tag_symbol = '  '
+style = "bg:#e78284 fg:#232634"
 
 [guix_shell]
 symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [haskell]
 symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [hg_branch]
 symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [hostname]
 ssh_symbol = " "
+style = "bg:#e78284 fg:#232634"
 
 [memory_usage]
 symbol = "󰍛 "
+style = "bg:#e78284 fg:#232634"
 
 [os.symbols]
 alpaquita = " "
