@@ -6,7 +6,6 @@
 in {
 
   documentation.man.generateCaches = false; # faster builds
-  programs.git.enable = true;
   programs.localsend = {
     enable = true;
     openFirewall = true;
