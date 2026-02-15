@@ -1,0 +1,384 @@
+add_newline = true
+follow_symlinks = false
+continuation_prompt = '[▶▶ ](#51576d)'
+
+format = """
+[](#8caaee)\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$gleam\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$directory[](#8caaee)\
+\
+( [](#51576d)$git_branch[](fg:#414559 bg:#51576d)\
+($git_status)[](#414559)) 
+"""
+
+right_format = "$character( $cmd_duration)"
+
+[cmd_duration]
+format = '[$duration](#8caaee)'
+
+[character]
+success_symbol = ''
+error_symbol = '[](bold #e78284)'
+vimcmd_symbol = '[](bold #ef9f76)'
+
+[git_branch]
+symbol = ""
+format = "[$symbol $branch ]($style)"
+style = "bg:#51576d fg:#8caaee"
+[git_status]
+format = "[$all_status]($style)"
+style = "bg:#414559 fg:#8caaee"
+
+[directory]
+style = "bg:#8caaee fg:#232634"
+format = "[$path]($style)"
+truncation_length = 1
+
+[directory.substitutions]
+"0" = " external"
+"andriod" = " andriod"
+"downloads" = " downloads"
+".config" = " config"
+"~" = " home"
+
+[bun]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[buf]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[cmake]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[cobol]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[crystal]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[daml]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[dart]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[deno]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[dotnet]
+style = "bg:#8caaee fg:#232634"
+format = "[$symbol]($style)"
+
+[elixir]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[erlang]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[fennel]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[gleam]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[gradle]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[haxe]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[helm]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[java]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[lua]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[meson]
+symbol = "󰔷 "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[ocaml]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol(\($switch_indicator$switch_name\) )]($style)'
+
+[opa]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[perl]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[php]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[pulumi]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol$stack]($style)'
+
+[purescript]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[python]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[quarto]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[raku]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[red]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[rlang]
+symbol = "󰟔 "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[ruby]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[solidity]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[typst]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[swift]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[vagrant]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[vlang]
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[zig]
+symbol = " "
+style = "bg:#8caaee fg:#232634"
+format = '[$symbol]($style)'
+
+[aws]
+symbol = "  "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[nix_shell]
+symbol = " "
+
+[os.symbols]
+alpaquita = " "
+alpine = " "
+almalinux = " "
+amazon = " "
+android = " "
+arch = " "
+artix = " "
+centos = " "
+debian = " "
+dragonfly = " "
+emscripten = " "
+endeavouros = " "
+fedora = " "
+freebsd = " "
+garuda = "󰛓 "
+gentoo = " "
+hardenedbsd = "󰞌 "
+illumos = "󰈸 "
+kali = " "
+linux = " "
+mabox = " "
+macos = " "
+manjaro = " "
+mariner = " "
+midnightbsd = " "
+mint = " "
+netbsd = " "
+nixos = " "
+openbsd = "󰈺 "
+opensuse = " "
+oraclelinux = "󰌷 "
+pop = " "
+raspbian = " "
+redhat = " "
+redhatenterprise = " "
+rockylinux = " "
+redox = "󰀘 "
+solus = "󰠳 "
+suse = " "
+ubuntu = " "
+unknown = " "
+void = " "
+windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
+
+[scala]
+symbol = " "
+
+
+
