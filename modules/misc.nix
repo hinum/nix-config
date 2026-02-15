@@ -1,10 +1,18 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+
+  starfish = (import ./_shells/fish.nix { inherit pkgs; });
+  devfish = (import ./_shells/devfish.nix { inherit pkgs; });
+
+in {
 
   documentation.man.generateCaches = false; # faster builds
   programs.git.enable = true;
   programs.localsend = {
     enable = true;
     openFirewall = true;
+  };
+  environment.sessionVariables = {
+    NIX_BUILD_SHELL = "${devfish}/bin/devfish";
   };
   environment.systemPackages = with pkgs; [
     firefox
@@ -13,9 +21,8 @@
     wl-clipboard
     tectonic
     zathura
+    starfish
 
-    (import ./_shells/fish.nix { inherit pkgs; })
-    (import ./_shells/devfish.nix { inherit pkgs; })
     go
     bun
     nodejs

@@ -1,9 +1,9 @@
 add_newline = true
 follow_symlinks = false
-continuation_prompt = '[▶▶ ](#51576d)'
+continuation_prompt = '[▶▶ ](#414559)'
 
 format = """
-[](#8caaee)\
+[ ](bg:#8caaee)\
 $c\
 $cmake\
 $cobol\
@@ -53,10 +53,10 @@ $nix_shell\
 $conda\
 $meson\
 $spack\
-$directory[](#8caaee)\
+$directory[ ](#8caaee)\
 \
-( [](#51576d)$git_branch[](fg:#414559 bg:#51576d)\
-($git_status)[](#414559)) 
+( $git_branch ([](#414559)\
+($git_status)[ ](#414559)))
 """
 
 right_format = "$character( $cmd_duration)"
@@ -71,8 +71,8 @@ vimcmd_symbol = '[](bold #ef9f76)'
 
 [git_branch]
 symbol = ""
-format = "[$symbol $branch ]($style)"
-style = "bg:#51576d fg:#8caaee"
+format = "[$symbol $branch]($style)"
+style = "#8caaee"
 [git_status]
 format = "[$all_status]($style)"
 style = "bg:#414559 fg:#8caaee"

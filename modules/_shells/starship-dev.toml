@@ -3,7 +3,7 @@ follow_symlinks = false
 continuation_prompt = '[▶▶ ](#51576d)'
 
 format = """
-[](#e78284)\
+[ ](bg:#e78284)\
 $c\
 $cmake\
 $cobol\
@@ -49,20 +49,27 @@ $vlang\
 $vagrant\
 $zig\
 $buf\
-$nix_shell\
 $conda\
 $meson\
 $spack\
-$directory[](#e78284)\
-\
-( [](#51576d)$git_branch[](fg:#414559 bg:#51576d)\
-($git_status)[](#414559)) 
+$directory[ ](#e78284)\
+( $git_branch )[](#414559)\
+($git_status)$nix_shell
 """
 
 right_format = "$character( $cmd_duration)"
 
 [cmd_duration]
 format = '[$duration](#e78284)'
+
+# ~/.config/starship.toml
+
+[nix_shell]
+impure_msg = '[ ](#414559)'
+pure_msg = '[󰂔]($style)[ ](#414559)'
+unknown_msg = '[]($style)[ ](#414559)'
+style = "bg:#414559 fg:#e78284"
+format = '$state'
 
 [character]
 success_symbol = ''
@@ -71,8 +78,8 @@ vimcmd_symbol = '[](bold #ef9f76)'
 
 [git_branch]
 symbol = ""
-format = "[$symbol $branch ]($style)"
-style = "bg:#51576d fg:#e78284"
+format = "[$symbol $branch]($style)"
+style = "#e78284"
 [git_status]
 format = "[$all_status]($style)"
 style = "bg:#414559 fg:#e78284"
@@ -322,9 +329,6 @@ ssh_symbol = " "
 
 [memory_usage]
 symbol = "󰍛 "
-
-[nix_shell]
-symbol = " "
 
 [os.symbols]
 alpaquita = " "
