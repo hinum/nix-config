@@ -22,6 +22,7 @@ in {
     tectonic
     zathura
     starfish
+    devfish
 
     go
     bun

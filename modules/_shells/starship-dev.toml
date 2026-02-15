@@ -53,8 +53,8 @@ $conda\
 $meson\
 $spack\
 $directory[ ](#e78284)\
-( $git_branch )[](#414559)\
-($git_status)$nix_shell
+( $git_branch )\
+([](#414559)($git_status)$nix_shell[ ](#414559))
 """
 
 right_format = "$character( $cmd_duration)"
@@ -65,9 +65,9 @@ format = '[$duration](#e78284)'
 # ~/.config/starship.toml
 
 [nix_shell]
-impure_msg = '[ ](#414559)'
-pure_msg = '[󰂔]($style)[ ](#414559)'
-unknown_msg = '[]($style)[ ](#414559)'
+impure_msg = ''
+pure_msg = '[󰂔]($style)'
+unknown_msg = '[]($style)'
 style = "bg:#414559 fg:#e78284"
 format = '$state'
 
