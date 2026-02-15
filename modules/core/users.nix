@@ -2,7 +2,7 @@
 
   programs.git = {
     enable = true;
-    settings = {
+    config = {
       user = {
         name = "Visut Hsu";
         email = "visuthsu@gmail.com";
