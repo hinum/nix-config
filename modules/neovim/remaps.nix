@@ -17,10 +17,10 @@
       action= "B";
     } {
       key = "<S-Up>";
-      action= "<C-u>";
+      action= "5k";
     } {
       key = "<S-Down>";
-      action = "<C-d>";
+      action = "5j";
     }
   ];
 }

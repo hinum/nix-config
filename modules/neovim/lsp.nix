@@ -1,4 +1,5 @@
 {...}: {
+  qt.enable = true;
   programs.nixvim = {
     lsp = {
       keymaps = [
@@ -19,6 +20,7 @@
       servers = {
         nixd.enable = true;
         gopls.enable = true;
+        qmlls.enable = true;
       };
     };
 

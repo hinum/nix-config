@@ -17,12 +17,14 @@ in {
     wl-clipboard
     tectonic
     zathura
+    prismlauncher
     starfish
     devfish
 
     go
     bun
     nodejs
+    quickshell
     gcc
 
     nixd
