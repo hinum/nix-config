@@ -29,7 +29,6 @@
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      GDK_BACKEND = "x11";
     };
   };
 }

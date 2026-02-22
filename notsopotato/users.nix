@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{self', ...}: {
 
   programs.git = {
     enable = true;
@@ -12,7 +12,7 @@
   };
   programs.fish.enable = true;
   users.users.numblr = {
-    shell = import ../_shells/fish.nix { inherit pkgs; };
+    shell = self'.starfish;
     isNormalUser = true;
     description = "numblr";
     extraGroups = [ "networkmanager" "wheel" ];

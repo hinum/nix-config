@@ -1,9 +1,4 @@
-{pkgs, ...}: let
-
-  starfish = (import ./_shells/fish.nix { inherit pkgs; });
-  devfish = (import ./_shells/devfish.nix { inherit pkgs; });
-
-in {
+{pkgs, self', ...}: {
 
   documentation.man.generateCaches = false; # faster builds
   programs.localsend = {
@@ -18,8 +13,8 @@ in {
     tectonic
     zathura
     prismlauncher
-    starfish
-    devfish
+    self'.starfish
+    self'.devfish
 
     go
     bun
