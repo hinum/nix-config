@@ -29,5 +29,6 @@ in {
 
     nixd
     gopls
+    texlab
   ];
 }

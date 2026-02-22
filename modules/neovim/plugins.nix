@@ -3,7 +3,14 @@
     treesitter.enable = true;
     web-devicons.enable = true;
     todo-comments.enable = true;
-    vimtex.enable = true;
+
+    vimtex = {
+      enable = true;
+      settings = {
+        compiler_method = "tectonic";
+        view_method = "zathura";
+      };
+    };
 
     telescope = {
       enable = true;

@@ -21,34 +21,38 @@
         nixd.enable = true;
         gopls.enable = true;
         qmlls.enable = true;
+        texlab.enable = true;
       };
     };
 
-    plugins.lspconfig.enable = true;
-    plugins.luasnip.enable = true;
-    plugins.cmp = let
-      mapping = {
-        "<down>".__raw = "cmp.mapping.select_next_item()";
-        "<up>".__raw = "cmp.mapping.select_prev_item()";
-        "<tab>".__raw = "cmp.mapping.confirm({ select = true })";
-      };
-    in {
-      enable = true;
-      autoEnableSource = true;
-      settings.mapping = mapping;
-      settings.sources = [
-        { name = "nvim_lsp"; }
-        { name = "path"; }
-        { name = "buffer"; }
-      ];
-      cmdline ={
-        "/" = {
-          inherit mapping;
-          sources = [{ name = "buffer"; }];
+    plugins = {
+      lspconfig.enable = true;
+      luasnip.enable = true;
+
+      cmp = let
+        mapping = {
+          "<down>".__raw = "cmp.mapping.select_next_item()";
+          "<up>".__raw = "cmp.mapping.select_prev_item()";
+          "<tab>".__raw = "cmp.mapping.confirm({ select = true })";
         };
-        ":" = {
-          inherit mapping;
-          sources = [{ name = "cmdline"; }];
+      in {
+        enable = true;
+        autoEnableSource = true;
+        settings.mapping = mapping;
+        settings.sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        cmdline ={
+          "/" = {
+            inherit mapping;
+            sources = [{ name = "buffer"; }];
+          };
+          ":" = {
+            inherit mapping;
+            sources = [{ name = "cmdline"; }];
+          };
         };
       };
     };

@@ -4,6 +4,9 @@
       key = "<leader>pv";
       action= "<cmd>Neotree<cr>";
     } {
+      key = "<leader>ll";
+      action= "<cmd>VimtexCompile<cr>";
+    } {
       key = "<leader>q";
       action= "<cmd>nohlsearch<cr>";
     } {
@@ -17,10 +20,10 @@
       action= "B";
     } {
       key = "<S-Up>";
-      action= "5k";
+      action= "10k";
     } {
       key = "<S-Down>";
-      action = "5j";
+      action = "10j";
     }
   ];
 }

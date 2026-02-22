@@ -59,7 +59,9 @@
     };
     homeConfigurations."numblr" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = homeModules;
+      modules = homeModules ++ [
+        inputs.stylix.homeModules.stylix
+      ];
     };
   };
 }
