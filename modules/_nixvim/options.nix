@@ -1,25 +1,20 @@
-{...}: {
-  stylix.targets.nixvim.colors.enable = false;
-  programs.nixvim = {
+{
+  colorscheme = "catppuccin";
+  colorschemes.catppuccin = {
     enable = true;
-    defaultEditor = true;
-    termguicolors = true;
-    colorschemes.catppuccin = {
-      enable = true;
-      flavour = "machiatto";
-    };
+    settings.flavour = "macchiato";
+  };
 
-    globals.mapleader = " ";
-    opts = {
-      signcolumn = "yes";
-      expandtab = true;
-      wrap = false;
-      scrolloff = 9999;
+  globals.mapleader = " ";
+  opts = {
+    signcolumn = "yes";
+    expandtab = true;
+    wrap = false;
+    scrolloff = 9999;
 
-      shiftwidth = 2;
-      tabstop = 2;
-      softtabstop = 2;
-      swapfile = false;
-    };
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    swapfile = false;
   };
 }

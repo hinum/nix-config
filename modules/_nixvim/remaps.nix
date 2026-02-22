@@ -1,5 +1,5 @@
-{...}: {
-  programs.nixvim.keymaps = [
+{
+  keymaps = [
     {
       key = "<leader>pv";
       action= "<cmd>Neotree<cr>";
@@ -14,10 +14,10 @@
       action= "\"_r";
     } {
       key = "<S-Left>";
-      action = "W";
+      action = "B";
     } {
       key= "<S-Right>";
-      action= "B";
+      action= "W";
     } {
       key = "<S-Up>";
       action= "10k";

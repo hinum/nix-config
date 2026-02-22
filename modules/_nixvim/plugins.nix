@@ -1,5 +1,5 @@
-{...}: {
-  programs.nixvim.plugins = {
+{
+  plugins = {
     treesitter.enable = true;
     web-devicons.enable = true;
     todo-comments.enable = true;
