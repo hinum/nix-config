@@ -15,7 +15,7 @@
     shell = self'.starfish;
     isNormalUser = true;
     description = "numblr";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
   };
 }
 
