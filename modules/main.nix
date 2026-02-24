@@ -47,6 +47,7 @@ in{
   };
 
   flake.homeConfigurations."numblr" = inputs.home-manager.lib.homeManagerConfiguration {
+    pkgs = inputs.nixpkgs.legacyPackages.${notsopotatoSystem};
     modules = homeModules ++ [
       inputs.stylix.homeModules.stylix
     ];
