@@ -6,8 +6,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  networking.wireless.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
