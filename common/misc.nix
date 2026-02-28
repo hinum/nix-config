@@ -23,6 +23,7 @@
     self'.starfish
     self'.devfish
     self'.nixvim
+    self'.nixos-utils
 
     go
     bun

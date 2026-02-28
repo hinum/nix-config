@@ -10,7 +10,7 @@ Shape {
   property color color: "white"
 
   property real startTheta: startPercent * 2 * Math.PI
-  property real theta: Math.min(startPercent + percent, 0.9999) * 2 * Math.PI
+  property real theta: (startPercent + percent) * 2 * Math.PI
 
   id: root
   width: size
@@ -45,6 +45,7 @@ Shape {
       direction: PathArc.Clockwise
     }
   }
+
   Behavior on theta {
     NumberAnimation {
       duration: 250

@@ -7,8 +7,7 @@ import QtQuick.Shapes
 
 PanelWindow {
   id: root
-  screen: Quickshell.screens.find(s => s.name == Hyprland.focusedMonitor.name)
-
+  screen: Quickshell.screens[0]
   anchors {
     bottom: true
     left: true
@@ -50,7 +49,8 @@ PanelWindow {
     PieCircle {
       size: 200
       strokesize: 20
-      percent: Pipewire.defaultAudioSink.audio.volume
+      percent: Pipewire.defaultAudioSink?.audio.volume ?? 1
+
       anchors {
         bottom: bg.bottom
         left: bg.left
@@ -58,25 +58,16 @@ PanelWindow {
         leftMargin: 40
       }
     }
-
     Timer {
       id: timer
       interval: 500
       running: false
       onTriggered: root.visible = false
     }
+  }
 
-    IpcHandler {
-      function increaseVolume() {
-        root.visible = true
-        timer.restart()
-        Pipewire.defaultAudioSink.audio.volume += 0.05
-      }
-      function decreaseVolume() {
-        root.visible = true
-        timer.restart()
-        Pipewire.defaultAudioSink.audio.volume -= 0.05
-      }
-    }
+  MouseArea {
+    anchors.fill: parent
+    onHoveredChanged: console.log(Pipewire.defaultAudioSink?.ready)
   }
 }
