@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+
     importtree.url = "github:vic/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixvim = {

@@ -22,6 +22,7 @@
     tectonic
     zathura
     prismlauncher
+    legcord
 
     self'.starfish
     self'.devfish

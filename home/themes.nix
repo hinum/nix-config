@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  stable-pkgs,
+  ...
+}: let
   qt_config = {
     Appearance = {
       style = "Darkly";
@@ -22,8 +26,8 @@ in {
     enable = true;
     platformTheme.name = "qtct";
     style.package = with pkgs; [
-      darkly-qt5
-      darkly
+      stable-pkgs.darkly-qt5
+      stable-pkgs.darkly
       catppuccin-qt5ct
     ];
     qt5ctSettings = qt_config;

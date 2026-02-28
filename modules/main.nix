@@ -12,15 +12,17 @@
     (inputs.importtree ../home)
   ];
   notsopotatoSystem = "x86_64-linux";
+  specialArgs = {
+    inherit self;
+    stable-pkgs = inputs.nixpkgs-stable.legacyPackages.${notsopotatoSystem};
+    self' = self.packages.${notsopotatoSystem};
+  };
 in {
   systems = [notsopotatoSystem];
 
   flake.nixosConfigurations.notsopotato = inputs.nixpkgs.lib.nixosSystem {
+    inherit specialArgs;
     system = notsopotatoSystem;
-    specialArgs = {
-      inherit self;
-      self' = self.packages.${notsopotatoSystem};
-    };
     modules = [
       inputs.home-manager.nixosModules.home-manager
       inputs.stylix.nixosModules.stylix
@@ -29,6 +31,7 @@ in {
       (inputs.importtree ../notsopotato)
       {
         home-manager = {
+          extraSpecialArgs = specialArgs;
           backupFileExtension = "backup";
           overwriteBackup = true;
           users.numblr.imports = homeModules;
@@ -38,6 +41,7 @@ in {
   };
 
   flake.homeConfigurations."numblr" = inputs.home-manager.lib.homeManagerConfiguration {
+    inherit specialArgs;
     pkgs = inputs.nixpkgs.legacyPackages.${notsopotatoSystem};
     modules =
       homeModules
