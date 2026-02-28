@@ -2,26 +2,33 @@
   keymaps = [
     {
       key = "<leader>pv";
-      action= "<cmd>Neotree<cr>";
-    } {
+      action = "<cmd>Neotree<cr>";
+    }
+    {
       key = "<leader>ll";
-      action= "<cmd>VimtexCompile<cr>";
-    } {
+      action = "<cmd>VimtexCompile<cr>";
+    }
+    {
       key = "<leader>q";
-      action= "<cmd>nohlsearch<cr>";
-    } {
+      action = "<cmd>nohlsearch<cr>";
+    }
+    {
       key = "r";
-      action= "\"_r";
-    } {
+      action = "\"_r";
+    }
+    {
       key = "<S-Left>";
       action = "B";
-    } {
-      key= "<S-Right>";
-      action= "W";
-    } {
+    }
+    {
+      key = "<S-Right>";
+      action = "W";
+    }
+    {
       key = "<S-Up>";
-      action= "10k";
-    } {
+      action = "10k";
+    }
+    {
       key = "<S-Down>";
       action = "10j";
     }

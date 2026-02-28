@@ -1,16 +1,13 @@
 {pkgs, ...}: let
-
   qt_config = {
     Appearance = {
       style = "Darkly";
-      color_scheme_path="/home/numblr/.nix-profile/share/qt5ct/colors/catppuccin-macchiato-blue.conf";
+      color_scheme_path = "/home/numblr/.nix-profile/share/qt5ct/colors/catppuccin-macchiato-blue.conf";
       custom_palette = "true";
       standar_dialogs = "default";
     };
   };
-
 in {
-
   home.pointerCursor = {
     enable = true;
     package = pkgs.bibata-cursors;
@@ -40,10 +37,10 @@ in {
       package = pkgs.adwaita-icon-theme;
     };
     theme = {
-      package = (pkgs.catppuccin-gtk.override { 
+      package = pkgs.catppuccin-gtk.override {
         variant = "macchiato";
         accents = ["blue"];
-      });
+      };
       name = "catppuccin-macchiato-blue-standard";
     };
   };

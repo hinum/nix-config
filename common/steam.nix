@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   environment.systemPackages = with pkgs; [
     lutris
     wine
@@ -13,7 +12,7 @@
     localNetworkGameTransfers.openFirewall = true;
 
     extraCompatPackages = with pkgs; [
-       proton-ge-bin
-     ];
+      proton-ge-bin
+    ];
   };
 }

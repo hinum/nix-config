@@ -1,4 +1,4 @@
-{...} : {
+{
   networking.hostName = "notsopotato";
   # networking.wireless.enable = true;
   # Configure network proxy if necessary
@@ -23,5 +23,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 }

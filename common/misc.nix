@@ -1,5 +1,8 @@
-{pkgs, self', ...}: {
-
+{
+  pkgs,
+  self',
+  ...
+}: {
   documentation.man.generateCaches = false; # faster builds
   stylix.targets.nixvim.colors.enable = false;
   qt.enable = true; # for qmlls to work properly

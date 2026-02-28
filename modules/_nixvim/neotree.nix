@@ -16,10 +16,10 @@
         git_status = {
           symbols = {
             untracked = "";
-            ignored   = "";
-            unstaged  = "";
-            staged    = "";
-            conflict  = "🔥";
+            ignored = "";
+            unstaged = "";
+            staged = "";
+            conflict = "🔥";
           };
         };
         icon = {

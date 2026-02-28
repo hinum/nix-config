@@ -1,5 +1,4 @@
 {self', ...}: {
-
   programs.git = {
     enable = true;
     config = {
@@ -15,7 +14,6 @@
     shell = self'.starfish;
     isNormalUser = true;
     description = "numblr";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = ["networkmanager" "wheel" "video"];
   };
 }
-

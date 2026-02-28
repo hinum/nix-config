@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -14,11 +13,11 @@
   services.greetd = {
     enable = true;
     settings = {
-       default_session = {
-         command = "start-hyprland";
-         user = "numblr";
-       };
-     };
+      default_session = {
+        command = "start-hyprland";
+        user = "numblr";
+      };
+    };
   };
   environment = {
     systemPackages = with pkgs; [

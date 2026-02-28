@@ -1,4 +1,8 @@
-{inputs, self, ...}: let
+{
+  inputs,
+  self,
+  ...
+}: let
   homeModules = [
     {
       home.username = "numblr";
@@ -8,9 +12,8 @@
     (inputs.importtree ../home)
   ];
   notsopotatoSystem = "x86_64-linux";
-
-in{
-  systems = [ notsopotatoSystem ];
+in {
+  systems = [notsopotatoSystem];
 
   flake.nixosConfigurations.notsopotato = inputs.nixpkgs.lib.nixosSystem {
     system = notsopotatoSystem;
@@ -36,8 +39,10 @@ in{
 
   flake.homeConfigurations."numblr" = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = inputs.nixpkgs.legacyPackages.${notsopotatoSystem};
-    modules = homeModules ++ [
-      inputs.stylix.homeModules.stylix
-    ];
+    modules =
+      homeModules
+      ++ [
+        inputs.stylix.homeModules.stylix
+      ];
   };
 }

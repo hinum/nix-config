@@ -1,13 +1,11 @@
-{...}: let 
-
+let
   configDir = ./configs/hyprland;
   entries = builtins.readDir configDir;
-  configfiles =
-    builtins.sort builtins.lessThan (
+  configfiles = builtins.sort builtins.lessThan (
     builtins.filter
-      (name: entries.${name} == "regular")
-      (builtins.attrNames entries));
-
+    (name: entries.${name} == "regular")
+    (builtins.attrNames entries)
+  );
 in {
   stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland = {

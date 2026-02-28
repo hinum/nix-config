@@ -1,38 +1,37 @@
 {
-  perSystem = {pkgs,...}: let
+  perSystem = {pkgs, ...}: let
     alejandra = "${pkgs.alejandra}/bin/alejandra";
   in {
-
     packages.nixos-edit = pkgs.writeShellScriptBin "nixos-edit" ''
 
-set -euo pipefail
-: "${"$"}{NIXOS_FLAKE_PATH:? cant find enviroment variable}"
+      set -euo pipefail
+      : "${"$"}{NIXOS_FLAKE_PATH:? cant find the NIXOS_FLAKE_PATH variable}"
 
-$EDITOR $NIXOS_FLAKE_PATH
-pushd $NIXOS_FLAKE_PATH
+      $EDITOR $NIXOS_FLAKE_PATH
+      pushd $NIXOS_FLAKE_PATH > /dev/null
 
-# Early return if no changes were detected
-if git diff --quiet; then
-    echo "No changes detected, exiting."
-    popd
-    exit 0
-fi
+      # Early return if no changes were detected
+      if git diff --quiet; then
+          echo "No changes detected, exiting."
+          popd > /dev/null
+          exit 0
+      fi
 
-# Autoformat your nix files
-${alejandra} . &>/dev/null \
-  || ( ${alejandra} . ; echo "formatting failed!" && exit 1)
+      # Autoformat your nix files
+      ${alejandra} . &>/dev/null \
+        || ( ${alejandra} . ; echo "formatting failed!" && exit 1)
 
-git diff -U0 '*.nix'
+      git diff --color=always -U0 '*.nix' | less -R
+      if ! sudo nixos-rebuild switch --flake $NIXOS_FLAKE_PATH; then
+        popd > /dev/null
+        exit 1
+      fi
 
-echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake $NIXOS_FLAKE_PATH &>tmp/nixos-switch.log || (cat tmp/nixos-switch.log | grep --color error && exit 1)
-
-current=$(nixos-rebuild list-generations | grep current)
-git commit -am "$current"
-
-popd
-notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
-
+      current=$(nixos-rebuild list-generations | awk "\$8==\"True\" {print \"generation \" \$1}")
+      git add .
+      git commit -m "$current"
+      git push
+      popd > /dev/null
     '';
   };
 }

@@ -4,13 +4,16 @@
       {
         key = "gl";
         action = "<cmd>lua vim.diagnostic.open_float()<cr>";
-      } {
+      }
+      {
         key = "<leader>r";
         lspBufAction = "rename";
-      } {
+      }
+      {
         key = "<leader>f";
         lspBufAction = "format";
-      } {
+      }
+      {
         key = "M";
         lspBufAction = "hover";
       }
@@ -38,18 +41,18 @@
       autoEnableSources = true;
       settings.mapping = mapping;
       settings.sources = [
-        { name = "nvim_lsp"; }
-        { name = "path"; }
-        { name = "buffer"; }
+        {name = "nvim_lsp";}
+        {name = "path";}
+        {name = "buffer";}
       ];
-      cmdline ={
+      cmdline = {
         "/" = {
           inherit mapping;
-          sources = [{ name = "buffer"; }];
+          sources = [{name = "buffer";}];
         };
         ":" = {
           inherit mapping;
-          sources = [{ name = "cmdline"; }];
+          sources = [{name = "cmdline";}];
         };
       };
     };
