@@ -1,5 +1,6 @@
 {
   pkgs,
+  stable-pkgs,
   self',
   ...
 }: {
@@ -23,6 +24,7 @@
     zathura
     prismlauncher
     legcord
+    stable-pkgs.inkscape
 
     self'.starfish
     self'.devfish

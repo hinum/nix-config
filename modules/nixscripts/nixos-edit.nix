@@ -11,7 +11,7 @@
       pushd $NIXOS_FLAKE_PATH > /dev/null
 
       # Early return if no changes were detected
-      if git diff --quiet; then
+      if git diff HEAD --quiet; then
           echo "No changes detected, exiting."
           popd > /dev/null
           exit 0
