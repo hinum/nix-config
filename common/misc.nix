@@ -2,12 +2,7 @@
   pkgs,
   self',
   ...
-}: let
-  blenderWCuda = pkgs.blender.override {
-    cudaSupport = true;
-    rocmSupport = false;
-  };
-in {
+}: {
   documentation.man.generateCaches = false; # faster builds
   stylix.targets.nixvim.colors.enable = false;
   qt.enable = true; # for qmlls to work properly
@@ -28,7 +23,6 @@ in {
     zathura
     prismlauncher
     legcord
-    blenderWCuda
 
     self'.starfish
     self'.devfish
