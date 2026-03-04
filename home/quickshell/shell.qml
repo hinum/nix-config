@@ -1,18 +1,14 @@
 import Quickshell
-import Quickshell.Io
+import Quickshell.Wayland
+import QtQuick
+import "bar"
+import "quicksettings"
 
 ShellRoot {
-  Clock {}
-  VolumeControl {
-    id: volcontrol
+  Bar {
+    onClicked: settings.display()
   }
-
-  IpcHandler {
-    function increaseVolume() {
-      volcontrol.increaseVolume()
-    }
-    function decreaseVolume() {
-      volcontrol.decreaseVolume()
-    }
+  QuickSettings {
+    id: settings
   }
 }

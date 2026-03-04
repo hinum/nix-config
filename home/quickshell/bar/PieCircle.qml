@@ -5,7 +5,7 @@ Shape {
 
   property real percent: 0.8 // out of 1
   property real startPercent: 0.25 // also out of 1
-  property int strokesize: 6
+  property int strokesize: 4
   property int size
   property color color: "white"
 
@@ -48,8 +48,14 @@ Shape {
 
   Behavior on theta {
     NumberAnimation {
-      duration: 250
-      easing.type: Easing.InOutSine
+      duration: 300
+      easing.type: Easing.InOutCubic
+    }
+  }
+  Behavior on startTheta {
+    NumberAnimation {
+      duration: 300
+      easing.type: Easing.InOutCubic
     }
   }
 }
