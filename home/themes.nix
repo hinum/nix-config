@@ -9,11 +9,6 @@
   stylix.targets.gtk.enable = false;
   stylix.targets.qt.enable = false;
 
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
-  };
-
   gtk = {
     enable = true;
     iconTheme = {
