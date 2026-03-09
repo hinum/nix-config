@@ -19,10 +19,10 @@
       }
     ];
     servers = {
+      tinymist.enable = true;
       nixd.enable = true;
       gopls.enable = true;
       qmlls.enable = true;
-      texlab.enable = true;
     };
   };
 

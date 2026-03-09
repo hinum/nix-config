@@ -35,10 +35,10 @@
     bun
     nodejs
     quickshell
+    tinymist
     gcc
 
     nixd
     gopls
-    texlab
   ];
 }
