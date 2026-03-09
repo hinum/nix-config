@@ -2,6 +2,9 @@
   programs.git = {
     enable = true;
     config = {
+      push = {
+        autoSetupRemote = true;
+      };
       user = {
         name = "Visut Hsu";
         email = "visuthsu@gmail.com";

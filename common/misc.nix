@@ -37,6 +37,7 @@
     nodejs
     quickshell
     tinymist
+    typst
     gcc
 
     nixd
