@@ -1,5 +1,6 @@
 {
   plugins = {
+    typst-preview.enable = true;
     treesitter.enable = true;
     web-devicons.enable = true;
     todo-comments.enable = true;

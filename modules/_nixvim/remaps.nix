@@ -6,7 +6,7 @@
     }
     {
       key = "<leader>ll";
-      action = "<cmd>VimtexCompile<cr>";
+      action = "<cmd>TypstPreview<cr>";
     }
     {
       key = "<leader>q";
