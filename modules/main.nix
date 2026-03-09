@@ -18,7 +18,7 @@
     self' = self.packages.${notsopotatoSystem};
   };
 in {
-  systems = [notsopotatoSystem];
+  systems = [notsopotatoSystem "aarch64-linux"];
 
   flake.nixosConfigurations.notsopotato = inputs.nixpkgs.lib.nixosSystem {
     inherit specialArgs;
