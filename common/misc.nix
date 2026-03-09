@@ -25,6 +25,7 @@
     prismlauncher
     legcord
     stable-pkgs.inkscape
+    file-roller
 
     self'.starfish
     self'.devfish
