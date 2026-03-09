@@ -22,6 +22,18 @@
     };
   };
 
+  fonts = {
+    packages = with pkgs; [
+      sarabun-font
+      noto-fonts
+      cascadia-code
+    ];
+
+    fontconfig.defaultFonts = {
+      sansSerif = ["Sarabun" "Noto Sans"];
+    };
+  };
+
   stylix.targets.gtk.enable = false;
   stylix.targets.qt.enable = false;
   environment.sessionVariables = {
