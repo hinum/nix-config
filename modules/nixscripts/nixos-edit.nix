@@ -6,15 +6,15 @@
 
       set -euo pipefail
       : "${"$"}{NIXOS_FLAKE_PATH:? cant find the NIXOS_FLAKE_PATH variable}"
+      ACTION=${"$"}{1:-"switch"}
 
       $EDITOR $NIXOS_FLAKE_PATH
-      pushd $NIXOS_FLAKE_PATH > /dev/null
+      cd $NIXOS_FLAKE_PATH
 
       # Early return if no changes were detected
       if git diff HEAD --quiet; then
-          echo "No changes detected, exiting."
-          popd > /dev/null
-          exit 0
+        echo "No changes detected, exiting."
+        exit 0
       fi
 
       # Autoformat your nix files
@@ -23,15 +23,22 @@
 
       git diff --color=always -U0 '*.nix' | less -R
       git add .
-      if ! sudo nixos-rebuild switch --flake $NIXOS_FLAKE_PATH; then
-        popd > /dev/null
+
+      if [[ $ACTION == "test" ]]; then
+        sudo nixos-rebuild test --flake $NIXOS_FLAKE_PATH
+        exit 0
+      elif [[ $ACTION == "boot" ]]; then
+        sudo nixos-rebuild boot --flake $NIXOS_FLAKE_PATH
+      elif [[ $ACTION == "switch" ]]; then
+        sudo nixos-rebuild switch --flake $NIXOS_FLAKE_PATH
+      else
+        echo "unrecognizable option: only accpet switch, boot, test"
         exit 1
       fi
-
+      echo ""
       current=$(nixos-rebuild list-generations | awk "\$8==\"True\" {print \"generation \" \$1}")
       git commit -m "$current"
       git push
-      popd > /dev/null
     '';
   };
 }

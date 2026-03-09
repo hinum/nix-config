@@ -1,6 +1,13 @@
 {
   plugins = {
-    typst-preview.enable = true;
+    typst-preview = {
+      enable = true;
+      settings = {
+        debug = true;
+        open_cmd = "firefox %s --class 'typst preview'";
+      };
+    };
+
     treesitter.enable = true;
     web-devicons.enable = true;
     todo-comments.enable = true;

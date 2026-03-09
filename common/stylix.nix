@@ -24,7 +24,7 @@
 
   fonts = {
     packages = with pkgs; [
-      noto-fonts
+      sarabun-font
     ];
   };
 

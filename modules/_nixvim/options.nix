@@ -7,6 +7,7 @@
 
   globals.mapleader = " ";
   opts = {
+    shell = "/run/current-system/sw/bin/bash";
     signcolumn = "yes";
     expandtab = true;
     wrap = false;
