@@ -5,9 +5,19 @@
     polarity = "dark";
 
     fonts = {
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+
       monospace = {
         package = pkgs.cascadia-code;
-        name = "Cascadia code";
+        name = "Cascadia Code";
       };
     };
   };
