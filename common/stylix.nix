@@ -17,21 +17,15 @@
 
       monospace = {
         package = pkgs.cascadia-code;
-        name = "Cascadia Code";
+        name = "Cascadia Code NF";
       };
     };
   };
 
   fonts = {
     packages = with pkgs; [
-      sarabun-font
       noto-fonts
-      cascadia-code
     ];
-
-    fontconfig.defaultFonts = {
-      sansSerif = ["Sarabun" "Noto Sans"];
-    };
   };
 
   stylix.targets.gtk.enable = false;

@@ -41,7 +41,7 @@ in {
   };
 
   flake.homeConfigurations."numblr" = inputs.home-manager.lib.homeManagerConfiguration {
-    inherit specialArgs;
+    extraSpecialArgs = specialArgs;
     pkgs = inputs.nixpkgs.legacyPackages.${notsopotatoSystem};
     modules =
       homeModules

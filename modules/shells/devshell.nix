@@ -9,10 +9,10 @@
         devfish
         starfish
         nixvim
+        pkgs.git
       ];
       shellHook = ''
-        exec devfish
-
+        exec starfish
       '';
     };
   };
