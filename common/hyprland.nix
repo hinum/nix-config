@@ -23,10 +23,21 @@
     systemPackages = with pkgs; [
       thunar
       kitty
-      wofi
+      vicinae
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+    };
+  };
+  systemd.user.services.vicinae = {
+    name = "vicinae server";
+    enable = true;
+    wantedBy = ["graphical-session.target"];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.vicinae}/bin/vicinae server";
+      RestartSec = "2s";
+      Restart = "on-failure";
     };
   };
 }
