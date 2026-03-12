@@ -4,7 +4,7 @@ let
   entries = builtins.readDir configDir;
   configfiles = builtins.sort builtins.lessThan (
     builtins.filter
-    (name: builtins.match "\\.conf$" name != null)
+    (name: builtins.match "[a-zA-Z0-9]+[.]conf" name != null)
     (builtins.attrNames entries)
   );
 in {
@@ -24,15 +24,11 @@ in {
     };
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      ipc = "on";
-      splash = false;
-      splash_offset = 2.0;
-
-      preload = ["${wallpaper}"];
-      wallpaper = [",${wallpaper}"];
-    };
-  };
+  services.hyprpaper.enable = true;
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    wallpaper {
+      monitor =
+      path = ${wallpaper}
+    }
+  '';
 }

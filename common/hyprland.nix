@@ -22,6 +22,7 @@
   environment = {
     systemPackages = with pkgs; [
       thunar
+      hyprpaper
       kitty
     ];
     sessionVariables = {
