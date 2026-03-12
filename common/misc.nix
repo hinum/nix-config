@@ -24,9 +24,6 @@
     tectonic
     zathura
     prismlauncher
-    (discord.override {
-      withVencord = true;
-    })
     stable-pkgs.inkscape
     file-roller
 
