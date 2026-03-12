@@ -22,8 +22,11 @@
   environment = {
     systemPackages = with pkgs; [
       thunar
+      gscreenshot
+      slurp
       hyprpaper
       kitty
+      libnotify
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
