@@ -24,7 +24,7 @@
     tectonic
     zathura
     prismlauncher
-    legcord
+    vencord
     stable-pkgs.inkscape
     file-roller
 
