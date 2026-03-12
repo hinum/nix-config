@@ -21,15 +21,17 @@
       };
     };
   };
-
   fonts = {
     packages = with pkgs; [
       sarabun-font
+      dejavu_fonts
     ];
   };
 
-  stylix.targets.gtk.enable = false;
-  stylix.targets.qt.enable = false;
+  stylix.targets = {
+    gtk.enable = false;
+    qt.enable = false;
+  };
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
   };

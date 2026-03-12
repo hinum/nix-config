@@ -9,11 +9,13 @@
       home.homeDirectory = "/home/numblr";
       home.stateVersion = "25.11";
     }
+    inputs.noctalia.homeModules.default
     (inputs.importtree ../home)
   ];
   notsopotatoSystem = "x86_64-linux";
   specialArgs = {
     inherit self;
+    inherit inputs;
     stable-pkgs = inputs.nixpkgs-stable.legacyPackages.${notsopotatoSystem};
     self' = self.packages.${notsopotatoSystem};
   };

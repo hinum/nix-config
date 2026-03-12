@@ -4,7 +4,7 @@
   self',
   ...
 }: {
-  documentation.man.generateCaches = false; # faster builds
+  documentation.man.cache.enable = false; # faster builds
   stylix.targets.nixvim.colors.enable = false;
   qt.enable = true; # for qmlls to work properly
 
@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     firefox
     htop
+    jq
     home-manager
     wl-clipboard
     tectonic
@@ -31,6 +32,7 @@
     self'.devfish
     self'.nixvim
     self'.nixos-utils
+    self'.noctalia-update
 
     go
     bun
