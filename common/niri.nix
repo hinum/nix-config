@@ -19,6 +19,10 @@
       };
     };
   };
+  programs.xwayland = {
+    enable = true;
+    package = pkgs.xwayland-satellite;
+  };
   environment = {
     systemPackages = with pkgs; [
       nautilus
