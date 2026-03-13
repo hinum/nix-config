@@ -1,30 +1,27 @@
 {pkgs, ...}: {
-  programs.hyprland = {
+  programs.niri = {
     enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+    useNautilus = true;
   };
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gnome
     ];
   };
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "start-hyprland";
+        command = "niri";
         user = "numblr";
       };
     };
   };
   environment = {
     systemPackages = with pkgs; [
-      thunar
-      gscreenshot
-      slurp
-      hyprpaper
+      nautilus
       kitty
       libnotify
     ];
