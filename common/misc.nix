@@ -27,12 +27,14 @@
     stable-pkgs.inkscape
     file-roller
     mangohud
+    vlc
 
     self'.starfish
     self'.devfish
     self'.nixvim
     self'.nixos-utils
     self'.noctalia-update
+    self'.bundle-nixvim
 
     go
     deno
