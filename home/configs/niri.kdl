@@ -1,3 +1,7 @@
+
+spawn-at-startup "systemd-cat -t sunshine -- sunshine"
+spawn-sh-at-startup "systemd-cat -t noctalia-shell -- noctalia-shell"
+
 input {
   keyboard {
     xkb {
@@ -89,8 +93,6 @@ overview {
   backdrop-color "#181825"
 }
 
-spawn-at-startup "sunshine"
-spawn-sh-at-startup "noctalia-shell"
 hotkey-overlay {
   skip-at-startup
 }
