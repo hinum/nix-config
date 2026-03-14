@@ -54,6 +54,7 @@ layout {
   preset-column-widths {
     proportion 0.5
     proportion 0.66667
+    proportion 0.33333
   }
   preset-window-heights {
     proportion 0.5
@@ -148,8 +149,8 @@ binds {
 
   Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
   Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
-  Mod+Ctrl+Right { switch-preset-column-width; }
-  Mod+Ctrl+Left  { switch-preset-window-height; }
+  Mod+Ctrl+Left { switch-preset-column-width; }
+  Mod+Ctrl+Right  { switch-preset-window-height; }
 
   Mod+Shift+Down  { consume-window-into-column; }
   Mod+Shift+Up    { expel-window-from-column; }

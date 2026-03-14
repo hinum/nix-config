@@ -26,6 +26,7 @@
     prismlauncher
     stable-pkgs.inkscape
     file-roller
+    mangohud
 
     self'.starfish
     self'.devfish
@@ -34,7 +35,7 @@
     self'.noctalia-update
 
     go
-    bun
+    deno
     nodejs
     quickshell
     tinymist
