@@ -1,5 +1,5 @@
 
-spawn-at-startup "systemd-cat -t sunshine -- sunshine"
+spawn-sh-at-startup "systemd-cat -t sunshine -- sunshine"
 spawn-sh-at-startup "systemd-cat -t noctalia-shell -- noctalia-shell"
 
 input {
@@ -34,10 +34,8 @@ input {
 }
 
 output "HDMI-A-1" {
-  mode "1920x1080@120.030"
-  scale 2
+  mode "1920x1080@120.000"
   transform "normal"
-  position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -122,10 +120,10 @@ window-rule {
 }
 
 binds {
-  Mod+Period { show-hotkey-overlay; }
+  Mod+Comma { show-hotkey-overlay; }
   Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
   Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-  Mod+L hotkey-overlay-title="Session menu" { spawn "noctalia-shell ipc call sessionMenu toggle"; }
+  Mod+L hotkey-overlay-title="Session menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -135,41 +133,42 @@ binds {
   XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
   XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
   XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
   // Open/close the Overview: a zoomed-out view of workspaces and windows.
   // You can also move the mouse into the top-left hot corner,
   // or do a four-finger swipe up on a touchpad.
-  Mod+O repeat=false { toggle-overview; }
-  Mod+Q repeat=false { close-window; }
+  Mod+Period repeat=false { toggle-overview; }
+  Mod+Q      repeat=false { close-window; }
 
   Mod+Left  { focus-column-left; }
   Mod+Right { focus-column-right; }
-  Mod+Down  { focus-window-down; }
-  Mod+Up    { focus-window-up; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
 
-  Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
-  Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
-  Mod+Ctrl+Left { switch-preset-column-width; }
-  Mod+Ctrl+Right  { switch-preset-window-height; }
+  Mod+Ctrl+Down  { consume-window-into-column; }
+  Mod+Ctrl+Right    { expel-window-from-column; }
+  Mod+Ctrl+Left  { switch-preset-column-width; }
+  Mod+Ctrl+Up { switch-preset-window-height; }
 
-  Mod+Shift+Down  { consume-window-into-column; }
-  Mod+Shift+Up    { expel-window-from-column; }
+  Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+  Mod+shift+Up    { move-window-up-or-to-workspace-up; }
   Mod+Shift+Left  { move-column-left; }
   Mod+Shift+Right { move-column-right; }
 
+  // idc but whatever
   Mod+Home       { focus-column-first; }
   Mod+End        { focus-column-last; }
   Mod+Shift+Home { move-column-to-first; }
   Mod+Shift+End  { move-column-to-last; }
+  Mod+Page_Down  { focus-workspace-down; }
+  Mod+Page_Up    { focus-workspace-up; }
 
-  Mod+Page_Down       { focus-workspace-down; }
-  Mod+Page_Up         { focus-workspace-up; }
-  Mod+Ctrl+Page_Up    { move-column-to-workspace-up; }
-  Mod+Ctrl+Page_Down  { move-column-to-workspace-down; }
-  Mod+Shift+Page_Down { move-workspace-down; }
-  Mod+Shift+Page_Up   { move-workspace-up; }
+  Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+  Mod+Shift+Page_Down { move-column-to-workspace-down; }
+  Mod+Ctrl+Page_Down  { move-workspace-down; }
+  Mod+Ctrl+Page_Up    { move-workspace-up; }
 
   Mod+WheelScrollDown       cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollUp         cooldown-ms=150 { focus-workspace-up; }
@@ -226,9 +225,10 @@ binds {
   // Mod+Space       { switch-layout "next"; }
   // Mod+Shift+Space { switch-layout "prev"; }
 
-  Mod+P { screenshot; }
-  Mod+Shift+P { screenshot-screen; }
-  Mod+Ctrl+P { screenshot-window; }
+  Mod+P hotkey-overlay-title="screenshot" { screenshot; }
+  Mod+Shift+P hotkey-overlay-title="screenshot screen" { screenshot-screen; }
+  Mod+Ctrl+P hotkey-overlay-title="screenshot window" { screenshot-window; }
+  Mod+R hotkey-overlay-title="record" { spawn-sh "noctalia-shell ipc call plugin:screen-recorder toggle"; }
 
   // Applications such as remote-desktop clients and software KVM switches may
   // request that niri stops processing the keyboard shortcuts defined here

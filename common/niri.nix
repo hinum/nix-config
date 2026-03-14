@@ -14,7 +14,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "niri";
+        command = "niri-session";
         user = "numblr";
       };
     };
@@ -28,6 +28,7 @@
       nautilus
       kitty
       libnotify
+      gpu-screen-recorder # for a noctalia plugin
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
