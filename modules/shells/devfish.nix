@@ -1,14 +1,27 @@
 {
   perSystem = {pkgs, ...}: {
-    packages.devfish =
-      pkgs.writeShellScriptBin "devfish" ''
+    packages.devfish = pkgs.writeShellApplication {
+      name = "devfish";
+      runtimeInputs = with pkgs; [
+        fish
+        starship
+      ];
 
-        export STARSHIP_CONFIG=${./starship-dev.toml}
-        ${pkgs.fish}/bin/fish -C "${pkgs.starship}/bin/starship init fish | source"
+      text = ''
+        fish -C "source ${pkgs.writeText "start_devfish" ''
+          export STARSHIP_CONFIG=${./starship-dev.toml}
+          set -ge fish_greeting
+          function cd
+            builtin cd $argv
+            set -U KITTY_CWD $(pwd)
+          end
+          starship init fish | source
+        ''}"
+      '';
 
-      ''
-      // {
+      derivationArgs = {
         shellPath = "/bin/devfish";
       };
+    };
   };
 }

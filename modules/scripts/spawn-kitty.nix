@@ -1,17 +1,17 @@
 {
   perSystem = {pkgs, ...}: {
-    packages.spawn-kitty = pkgs.writeShellApplication {
+    packages.spawn-kitty = pkgs.writeTextFile {
       name = "spawn-kitty";
-      runtimeInputs = [pkgs.socat pkgs.kitty];
       text = ''
-        set -euo pipefail
-        if pgrep kitty-wrapped; then
-          kitty -d "$(echo | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || echo "$HOME")"
-        else
-          echo "$HOME" | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || :
-          kitty -d "$HOME"
-        fi
+        #!${pkgs.fish}/bin/fish
+
+        if not pgrep kitty-wrapped
+          set -U KITTY_CWD "$HOME"
+        end
+        exec kitty -d "$KITTY_CWD"
       '';
+      executable = true;
+      destination = "/bin/spawn-kitty";
     };
   };
 }

@@ -6,8 +6,6 @@
   }: {
     devShells.default = pkgs.mkShell {
       packages = with self'.packages; [
-        devfish
-        starfish
         nixvim
         pkgs.git
       ];

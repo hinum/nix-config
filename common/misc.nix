@@ -32,7 +32,6 @@
     tldr
 
     self'.starfish
-    self'.devfish
     self'.nixvim
     self'.scripts
 
