@@ -10,7 +10,7 @@
       text = ''
         fish -C "source ${pkgs.writeText "start_devfish" ''
           export STARSHIP_CONFIG=${./starship-dev.toml}
-          set -ge fish_greeting
+          set -U fish_greeting ""
           function cd
             builtin cd $argv
             set -U KITTY_CWD $(pwd)

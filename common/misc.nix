@@ -30,8 +30,10 @@
     vlc
     socat
     tldr
+    alacritty
 
     self'.starfish
+    self'.devfish
     self'.nixvim
     self'.scripts
 

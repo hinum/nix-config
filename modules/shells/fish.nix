@@ -1,9 +1,5 @@
 {
-  perSystem = {
-    pkgs,
-    self',
-    ...
-  }: {
+  perSystem = {pkgs, ...}: {
     packages.starfish = pkgs.writeShellApplication {
       name = "starfish";
       runtimeInputs = with pkgs; [
