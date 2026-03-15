@@ -1,14 +1,17 @@
 {
   perSystem = {pkgs, ...}: {
-    packages.nixos-clean-generations = pkgs.writeShellScriptBin "nixos-clean-generations" ''
+    packages.nixos-clean-generations = pkgs.writeShellApplication {
+      name = "nixos-clean-generations";
+      text = ''
 
-      set -euo pipefail
-      : "${"$"}{NIXOS_FLAKE_PATH:? cant find the NIXOS_FLAKE_PATH variable}"
+        set -euo pipefail
+        : "${"$"}{NIXOS_FLAKE_PATH:? cant find the NIXOS_FLAKE_PATH variable}"
 
-      sudo nix-env -p /nix/var/nix/profiles/system/ --delete-generations old
-      sudo nixos-rebuild boot --flake $NIXOS_FLAKE_PATH
-      sudo nix-collect-garbage -d
+        sudo nix-env -p /nix/var/nix/profiles/system/ --delete-generations old
+        sudo nixos-rebuild boot --flake "$NIXOS_FLAKE_PATH"
+        sudo nix-collect-garbage -d
 
-    '';
+      '';
+    };
   };
 }

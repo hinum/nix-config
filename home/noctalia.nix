@@ -19,7 +19,7 @@ in {
       ];
       states = {
         screen-recorder = {
-          enable = true;
+          enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };

@@ -1,13 +1,17 @@
 {
-  perSystem = {pkgs, self', ...}: {
+  perSystem = {
+    pkgs,
+    self',
+    ...
+  }: {
     packages.bundle-nixvim = pkgs.writeShellApplication {
       name = "bundle-nixvim";
       runtimeInputs = [
         pkgs.zip
         self'.packages.nixvim
       ];
-
       text = ''
+
         set -euo pipefail
         CWD=$(pwd)
         PACKPATH=$(cat "$(which nvim)" | grep -oP 'packpath\^=\K([a-zA-Z0-9/.-]+)')
@@ -19,8 +23,8 @@
         cp "$INITPATH" ./init.lua
 
         # patch nix/store and run/current-system/sw paths
-        sed -i -E 's/\/nix\/store\/[a-zA-Z0-9.-]+((\/\w+)+)/\1/g' ./init.lua
-        sed -i -E 's/\/run\/current-system\/sw((\/\w+)+)/\1/g' ./init.lua
+        sed -i -E 's/\/nix\/store\/[a-zA-Z0-9.-]+\/bin\/(\w+)/\1/g' ./init.lua
+        sed -i -E 's/\/run\/current-system\/sw\/bin\/(\w+)/\1/g' ./init.lua
 
         cat <<'EOF' > ./nvim
         #!/usr/bin/env bash
@@ -31,6 +35,7 @@
         chmod +x ./nvim
         zip --recurse-paths "$CWD/nvim.zip" .
         rm -rf "$(pwd)"
+
       '';
     };
   };

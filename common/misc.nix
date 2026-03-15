@@ -32,19 +32,19 @@
     self'.starfish
     self'.devfish
     self'.nixvim
-    self'.nixos-utils
-    self'.noctalia-update
-    self'.bundle-nixvim
+    self'.scripts
 
     go
     deno
     nodejs
     quickshell
-    tinymist
     typst
     gcc
+    alejandra
+    python3
 
     nixd
     gopls
+    tinymist
   ];
 }

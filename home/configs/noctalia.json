@@ -69,16 +69,6 @@
           "usePadding": false
         },
         {
-          "colorizeIcons": false,
-          "hideMode": "hidden",
-          "id": "ActiveWindow",
-          "maxWidth": 145,
-          "scrollingMode": "hover",
-          "showIcon": true,
-          "textColor": "none",
-          "useFixedWidth": false
-        },
-        {
           "compactMode": false,
           "hideMode": "hidden",
           "hideWhenIdle": false,
@@ -129,15 +119,15 @@
           "pinned": []
         },
         {
-          "id": "plugin:screen-recorder"
-        },
-        {
           "hideWhenZero": false,
           "hideWhenZeroUnread": false,
           "iconColor": "none",
           "id": "NotificationHistory",
           "showUnreadBadge": true,
           "unreadBadgeColor": "primary"
+        },
+        {
+          "id": "plugin:screen-recorder"
         },
         {
           "deviceNativePath": "__default__",
@@ -301,7 +291,7 @@
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
     "transitionDuration": 1500,
-    "transitionType": "random",
+    "transitionType": "disc",
     "skipStartupTransition": false,
     "transitionEdgeSmoothness": 0.05,
     "panelPosition": "follow_bar",
@@ -377,7 +367,23 @@
           "id": "KeepAwake"
         },
         {
-          "id": "NightLight"
+          "defaultSettings": {
+            "audioCodec": "opus",
+            "audioSource": "default_output",
+            "colorRange": "limited",
+            "copyToClipboard": false,
+            "directory": "",
+            "filenamePattern": "recording_yyyyMMdd_HHmmss",
+            "frameRate": "60",
+            "hideInactive": false,
+            "iconColor": "none",
+            "quality": "very_high",
+            "resolution": "original",
+            "showCursor": true,
+            "videoCodec": "h264",
+            "videoSource": "portal"
+          },
+          "id": "plugin:screen-recorder"
         }
       ]
     },
