@@ -8,7 +8,7 @@
         if pgrep kitty-wrapped; then
           kitty -d "$(echo | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || echo "$HOME")"
         else
-          echo "$HOME" | socat - UNIX-CONNECT:/tmp/pwd-deamon || :
+          echo "$HOME" | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || :
           kitty -d "$HOME"
         fi
       '';
