@@ -127,7 +127,7 @@ window-rule {
 
 binds {
   Mod+Comma { show-hotkey-overlay; }
-  Mod+Return hotkey-overlay-title="Open a Terminal" { spawn-sh "kitty -d \"$(echo | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || echo \"$HOME\")\""; }
+  Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "spawn-kitty"; }
   Mod+Ctrl+Return hotkey-overlay-title="Open a Terminal: home" { spawn-sh "kitty -d \"$HOME\""; }
   Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
   Mod+L hotkey-overlay-title="Session menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }

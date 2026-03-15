@@ -11,6 +11,7 @@
         nixos-clean-generations
         noctalia-update
         bundle-nixvim
+        spawn-kitty
       ];
     };
   };

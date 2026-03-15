@@ -1,7 +1,7 @@
 {self', ...}: {
   systemd.user.services.pwd-deamon = {
     enable = true;
-    wantedBy = ["multi-user.target"];
+    wantedBy = ["default.target"];
 
     serviceConfig = {
       ExecStart = "${self'.pwd-deamon}/bin/pwd-deamon";
