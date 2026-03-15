@@ -127,7 +127,8 @@ window-rule {
 
 binds {
   Mod+Comma { show-hotkey-overlay; }
-  Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
+  Mod+Return hotkey-overlay-title="Open a Terminal" { spawn-sh "kitty -d \"$(echo | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock || echo \"$HOME\")\""; }
+  Mod+Ctrl+Return hotkey-overlay-title="Open a Terminal: home" { spawn-sh "kitty -d \"$HOME\""; }
   Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
   Mod+L hotkey-overlay-title="Session menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
@@ -145,8 +146,8 @@ binds {
   // Open/close the Overview: a zoomed-out view of workspaces and windows.
   // You can also move the mouse into the top-left hot corner,
   // or do a four-finger swipe up on a touchpad.
-  Mod+Period repeat=false { toggle-overview; }
-  Mod+Q      repeat=false { close-window; }
+  Mod+O repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
 
   Mod+Left  { focus-column-left; }
   Mod+Right { focus-column-right; }
@@ -204,8 +205,7 @@ binds {
   Mod+Shift+8 { move-column-to-workspace 8; }
   Mod+Shift+9 { move-column-to-workspace 9; }
 
-  Mod+Shift+Slash { maximize-column; }
-  Mod+Ctrl+Slash { center-visible-columns; }
+  Mod+Ctrl+Slash { maximize-column; }
   Mod+Slash { expand-column-to-available-width; }
   Mod+F { fullscreen-window; }
   Mod+C { center-column; }

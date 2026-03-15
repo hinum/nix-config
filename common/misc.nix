@@ -28,6 +28,8 @@
     file-roller
     mangohud
     vlc
+    socat
+    tldr
 
     self'.starfish
     self'.devfish

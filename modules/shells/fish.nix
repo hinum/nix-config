@@ -4,18 +4,29 @@
     self',
     ...
   }: {
-    packages.starfish =
-      pkgs.writeShellScriptBin "starfish" ''
-
-        ${pkgs.fish}/bin/fish -C "source ${pkgs.writeShellScript "starfish_start" ''
+    packages.starfish = pkgs.writeShellApplication {
+      name = "starfish";
+      runtimeInputs = with pkgs; [
+        fish
+        starship
+        socat
+        self'.packages.devfish
+      ];
+      text = ''
+        fish -C "source ${pkgs.writeText "starfish_start" ''
           export STARSHIP_CONFIG=${./starship.toml}
-          alias nix-shell='nix-shell --command "exec ${self'.packages.devfish}/bin/devfish"'
-          ${pkgs.starship}/bin/starship init fish | source
+          alias nix-shell='nix-shell --command "exec devfish"'
+          function cd
+            builtin cd $argv
+            pwd | socat - UNIX-CONNECT:/tmp/pwd-deamon.sock
+          end
+          starship init fish | source
         ''}"
+      '';
 
-      ''
-      // {
+      derivationArgs = {
         shellPath = "/bin/starfish";
       };
+    };
   };
 }
