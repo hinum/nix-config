@@ -7,17 +7,14 @@
         starship
         fortune
         cowsay
+        jq
       ];
       text = ''
         fish -C "source ${pkgs.writeText "starfish_start" ''
           export STARSHIP_CONFIG=${./starship.toml}
           alias nix-shell='nix-shell --command "exec devfish"'
-          function cd
-            builtin cd $argv
-            set -U KITTY_CWD $(pwd)
-          end
           function fish_greeting
-            if [ (pgrep kitty-wrapped | wc -l) -le 1 ]
+            if [ (kitten @ --to unix:/tmp/spawn-kitty ls | jq length) -le 2 ]
               fortune | cowsay -f tux
             end
           end

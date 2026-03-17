@@ -1,17 +1,16 @@
 {
   perSystem = {pkgs, ...}: {
-    packages.spawn-kitty = pkgs.writeTextFile {
+    packages.spawn-kitty = pkgs.writeShellApplication {
       name = "spawn-kitty";
-      text = ''
-        #!${pkgs.fish}/bin/fish
 
-        if not pgrep kitty-wrapped
-          set -U KITTY_CWD "$HOME"
-        end
-        exec kitty -d "$KITTY_CWD"
+      runtimeInputs = [
+        pkgs.kitty
+      ];
+      text = ''
+        kitten @ --to unix:/tmp/spawn-kitty \
+          launch -m 'state:focused_os_window and recent:0' --cwd current --type os-window \
+        || kitten @ --to unix:/tmp/spawn-kitty launch
       '';
-      executable = true;
-      destination = "/bin/spawn-kitty";
     };
   };
 }

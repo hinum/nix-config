@@ -15,9 +15,10 @@
     };
   };
   systemd.user.services.sunshine = {
+    after = ["niri.service"];
     serviceConfig = {
       Restart = lib.mkForce "always";
-      RestartSec = lib.mkForce "1s";
+      RestartSec = lib.mkForce "0.1s";
     };
   };
   networking = {

@@ -36,7 +36,6 @@
     self'.devfish
     self'.nixvim
     self'.scripts
-
     go
     deno
     nodejs

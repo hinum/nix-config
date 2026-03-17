@@ -1,0 +1,13 @@
+diff --git a/server/src/net/server.cpp b/server/src/net/server.cpp
+index 9635d29..76d908f 100644
+--- a/server/src/net/server.cpp
++++ b/server/src/net/server.cpp
+@@ -32,7 +32,7 @@ Server::HostInfo Server::GetHostInfo()
+ 	udp::resolver resolver(context);
+ 	udp::socket socket(context);
+ 
+-	socket.connect(udp::endpoint(asio::ip::address::from_string("8.8.8.8"), 80));
++	socket.connect(udp::endpoint(asio::ip::make_address("8.8.8.8"), 80));
+ 
+ 	// The IPv4 address needed is the address of the local endpoint assigned to the socket
+ 	// (the network adapter actual traffic is routed trough)
