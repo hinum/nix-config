@@ -7,7 +7,7 @@
     enable = true;
     openFirewall = true;
     capSysAdmin = true;
-    autoStart = false;
+    autoStart = true;
     package = pkgs.sunshine.override {
       config.cudaSupport = true;
       # TODO: removed this (this was added to fix an unstable update)
