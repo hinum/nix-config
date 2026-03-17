@@ -36,7 +36,8 @@
   };
   systemd.user.services.kitty = {
     enable = true;
-    wantedBy = ["niri.service"];
+    after = ["niri.service"];
+    wantedBy = ["graphical-session.target"];
 
     serviceConfig = {
       ExecStart = "${pkgs.kitty}/bin/kitty --single-instance --listen-on unix:/tmp/spawn-kitty --start-as hidden";

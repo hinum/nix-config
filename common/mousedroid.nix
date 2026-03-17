@@ -1,10 +1,12 @@
 {self', ...}: {
   systemd.user.services.mousedroid = {
-    wantedBy = ["niri.service"];
+    enable = true;
+    after = ["niri.service"];
     serviceConfig = {
       ExecStart = "${self'.mousedroid}/bin/mousedroid-deamon";
       Restart = "on-failure";
     };
+    wantedBy = ["graphical-session.target"];
   };
   networking.firewall = {
     allowedUDPPorts = [6969];
