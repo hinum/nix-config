@@ -27,16 +27,16 @@
 
 
         if [[ $ACTION == "test" ]]; then
-          git diff --color=always | less -R
+          (git diff --color=always | less -R) || :
           git add .
           sudo nixos-rebuild test --flake "$NIXOS_FLAKE_PATH"
           exit 0
         elif [[ $ACTION == "boot" ]]; then
-          git diff --color=always HEAD | less -R
+          (git diff --color=always HEAD | less -R) || :
           git add .
           sudo nixos-rebuild boot --flake "$NIXOS_FLAKE_PATH"
         elif [[ $ACTION == "switch" ]]; then
-          git diff --color=always HEAD | less -R
+          (git diff --color=always HEAD | less -R) || :
           git add .
           sudo nixos-rebuild switch --flake "$NIXOS_FLAKE_PATH"
         else
