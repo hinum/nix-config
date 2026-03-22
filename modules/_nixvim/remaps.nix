@@ -26,11 +26,11 @@
     }
     {
       key = "<S-Up>";
-      action = "10k";
+      action = "6k";
     }
     {
       key = "<S-Down>";
-      action = "10j";
+      action = "6j";
     }
   ];
 }

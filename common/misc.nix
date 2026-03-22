@@ -49,5 +49,6 @@
     gopls
     tinymist
     nodePackages."@tailwindcss/language-server"
+    nodePackages.svelte-language-server
   ];
 }

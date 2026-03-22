@@ -19,6 +19,7 @@
       }
     ];
     servers = {
+      svelte.enable = true;
       tailwindcss.enable = true;
       tinymist.enable = true;
       nixd.enable = true;
