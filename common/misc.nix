@@ -48,5 +48,6 @@
     nixd
     gopls
     tinymist
+    nodePackages."@tailwindcss/language-server"
   ];
 }

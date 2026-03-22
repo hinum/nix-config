@@ -19,6 +19,7 @@
       }
     ];
     servers = {
+      tailwindcss.enable = true;
       tinymist.enable = true;
       nixd.enable = true;
       gopls.enable = true;
