@@ -8,8 +8,8 @@
       ];
       text = ''
         kitten @ --to unix:/tmp/spawn-kitty \
-          launch -m 'state:focused_os_window and recent:0' --cwd current --type os-window \
-        || kitten @ --to unix:/tmp/spawn-kitty launch
+          launch -m 'state:focused_os_window and recent:0' --cwd current --type os-window fish -C "exec starfish" \
+        || kitten @ --to unix:/tmp/spawn-kitty launch "exec starfish"
       '';
     };
   };
