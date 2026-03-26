@@ -7,15 +7,12 @@
     enable = true;
     openFirewall = true;
     capSysAdmin = true;
-    autoStart = true;
+    autoStart = false;
     package = pkgs.sunshine.override {
       config.cudaSupport = true;
-      # TODO: removed this (this was added to fix an unstable update)
-      boost = pkgs.boost187;
     };
   };
   systemd.user.services.sunshine = {
-    after = ["niri.service"];
     serviceConfig = {
       Restart = lib.mkForce "always";
       RestartSec = lib.mkForce "0.1s";
