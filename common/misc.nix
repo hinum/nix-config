@@ -31,6 +31,7 @@
     socat
     tldr
     alacritty
+    spacetimedb
 
     self'.starfish
     self'.devfish
