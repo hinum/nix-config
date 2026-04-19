@@ -31,7 +31,7 @@
     socat
     tldr
     alacritty
-    spacetimedb
+    ffmpeg
 
     self'.starfish
     self'.devfish

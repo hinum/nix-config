@@ -8,7 +8,12 @@
       };
     };
 
-    treesitter.enable = true;
+    treesitter = {
+      enable = true;
+      highlight.enable = true;
+      indent.enable = true;
+      folding.enable = false;
+    };
     web-devicons.enable = true;
     todo-comments.enable = true;
 
